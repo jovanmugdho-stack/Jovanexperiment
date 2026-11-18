@@ -1,1 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jovans Harmony & Guitar Code</title>
 
+<style>
+:root {
+  --orange: #ff7518;
+  --orange-light: #ff9a50;
+  --bg: #080808;
+  --panel: #171717;
+  --ash: #999999;
+  --text: #ffffff;
+  --line: #454545;
+}
+
+body.light {
+  --bg: #ffffff;
+  --panel: #f1f1f1;
+  --ash: #777777;
+  --text: #111111;
+  --line: #cccccc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 20px;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: .3s;
+}
+
+.container {
+  max-width: 500px;
+  margin: 25px auto;
+  padding: 25px 20px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  text-align: center;
+  box-shadow: 0 10px 35px #0002;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  color: var(--orange);
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
+}
+
+#themeBtn {
+  background: var(--bg);
+  color: var(--orange);
+  border: 1px solid var(--orange);
+  border-radius: 30px;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+.subtitle {
+  color: var(--ash);
+  font-size: 12px;
+  letter-spacing: 2px;
+  margin: 12px 0 25px;
+}
+
+.strings {
+  display: grid;
+  grid-template-columns: repeat(6,1fr);
+  gap: 7px;
+}
+
+.string {
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px 2px;
+  cursor: pointer;
+}
+
+.string strong {
+  display: block;
+  font-size: 22px;
+  color: var(--orange);
+}
+
+.string small {
+  color: var(--ash);
+  font-size: 10px;
+}
+
+.string.active {
+  border: 2px solid var(--orange);
+  box-shadow: 0 0 12px #ff751855;
+}
+
+.label {
+  color: var(--ash);
+  font-size: 12px;
+  margin-top: 30px;
+  letter-spacing: 2px;
+}
+
+.note {
+  color: var(--orange);
+  font-size: 75px;
+  font-weight: bold;
+  margin: 5px;
+  text-shadow: 0 0 18px #ff751855;
+}
+
+.frequency {
+  font-size: 20px;
+  margin: 5px;
+}
+
+.status {
+  color: var(--orange);
+  font-size: 18px;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+.meter {
+  position: relative;
+  height: 10px;
+  margin: 45px 10px 10px;
+  background: var(--line);
+  border-radius: 20px;
+}
+
+.center {
+  position: absolute;
+  height: 35px;
+  width: 3px;
+  background: var(--orange);
+  left: 50%;
+  top: -12px;
+  box-shadow: 0 0 12px var(--orange);
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.needle {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  width: 5px;
+  height: 27px;
+  background: var(--orange);
+  border-radius: 5px;
+  transform: translateX(-50%);
+  box-shadow: 0 0 12px var(--orange);
+  transition: left .12s;
+}
+
+.scale {
+  display: flex;
+  justify-content: space-between;
+  color: var(--ash);
+  font-size: 12px;
+  margin-top: 17px;
+}
+
+.zero {
+  color: var(--orange);
+  font-weight: bold;
+}
+
+.start {
+  width: 100%;
+  padding: 16px;
+  margin-top: 35px;
+  background: var(--orange);
+  color: #080808;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.start:hover {
+  background: var(--orange-light);
+}
+
+.info {
+  color: var(--ash);
+  font-size: 12px;
+  line-height: 1.7;
+  margin-top: 20px;
+}
+
+footer {
+  color: var(--ash);
+  font-size: 11px;
+  margin-top: 30px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+  <div class="logo">
+    JOVANS HARMONY<br>
+    & GUITAR CODE
+  </div>
+
+  <button id="themeBtn">☀ LIGHT</button>
+</header>
+
+<div class="subtitle">
+  PROFESSIONAL GUITAR TUNER
+</div>
+
+<div class="strings">
+  <button class="string" data-i="0">
+    <strong>E</strong><small>6th</small>
+  </button>
+  <button class="string" data-i="1">
+    <strong>A</strong><small>5th</small>
+  </button>
+  <button class="string" data-i="2">
+    <strong>D</strong><small>4th</small>
+  </button>
+  <button class="string" data-i="3">
+    <strong>G</strong><small>3rd</small>
+  </button>
+  <button class="string" data-i="4">
+    <strong>B</strong><small>2nd</small>
+  </button>
+  <button class="string" data-i="5">
+    <strong>E</strong><small>1st</small>
+  </button>
+</div>
+
+<div class="label">DETECTED NOTE</div>
+
+<div class="note" id="note">--</div>
+<div class="frequency" id="frequency">0.00 Hz</div>
+
+<div class="status" id="status">READY TO TUNE</div>
+
+<div class="meter">
+  <div class="center"></div>
+  <div class="needle" id="needle"></div>
+</div>
+
+<div class="scale">
+  <span>LOW</span>
+  <span class="zero">0 ZERO</span>
+  <span>HIGH</span>
+</div>
+
+<button class="start" id="start">
+  START MICROPHONE
+</button>
+
+<div class="info" id="info">
+  Allow microphone access and play one string at a time.
+</div>
+
+<footer>
+  JOVANS HARMONY & GUITAR CODE<br>
+  STANDARD TUNING · E A D G B E
+</footer>
+
+</div>
+
+<script>
+const themeBtn = document.getElementById("themeBtn");
+
+themeBtn.addEventListener("click", () => {
+  document.body.classList.toggle("light");
+
+  themeBtn.textContent =
+    document.body.classList.contains("light")
+    ? "☾ DARK"
+    : "☀ LIGHT";
+});
+
+const strings = [
+  {name:"E", hz:82.41},
+  {name:"A", hz:110},
+  {name:"D", hz:146.83},
+  {name:"G", hz:196},
+  {name:"B", hz:246.94},
+  {name:"E", hz:329.63}
+];
+
+let selected = -1;
+let audioContext, analyser, stream;
+let running = false;
+let animation;
+
+const noteEl = document.getElementById("note");
+const freqEl = document.getElementById("frequency");
+const statusEl = document.getElementById("status");
+const needle = document.getElementById("needle");
+const info = document.getElementById("info");
+const startBtn = document.getElementById("start");
+
+document.querySelectorAll(".string").forEach(btn => {
+  btn.addEventListener("click", () => {
+    selected = Number(btn.dataset.i);
+
+    document.querySelectorAll(".string").forEach(b =>
+      b.classList.remove("active")
+    );
+
+    btn.classList.add("active");
+
+    info.textContent =
+      "Selected: " + strings[selected].name +
+      " | " + strings[selected].hz + " Hz";
+  });
+});
+
+async function startTuner() {
+  if (running) {
+    stopTuner();
+    return;
+  }
+
+  try {
+    stream = await navigator.mediaDevices.getUserMedia({
+      audio: {
+        echoCancellation: false,
+        noiseSuppression: false,
+        autoGainControl: false
+      }
+    });
+
+    audioContext = new (
+      window.AudioContext || window.webkitAudioContext
+    )();
+
+    await audioContext.resume();
+
+    const source =
+      audioContext.createMediaStreamSource(stream);
+
+    analyser = audioContext.createAnalyser();
+    analyser.fftSize = 8192;
+    source.connect(analyser);
+
+    running = true;
+    startBtn.textContent = "STOP TUNER";
+    info.textContent = "Listening to your guitar...";
+
+    detect();
+
+  } catch(error) {
+    info.textContent =
+      "Microphone permission required. Please allow access.";
+  }
+}
+
+function stopTuner() {
+  running = false;
+  cancelAnimationFrame(animation);
+
+  if(stream) {
+    stream.getTracks().forEach(t => t.stop());
+  }
+
+  if(audioContext) {
+    audioContext.close();
+  }
+
+  startBtn.textContent = "START MICROPHONE";
+  noteEl.textContent = "--";
+  freqEl.textContent = "0.00 Hz";
+  statusEl.textContent = "READY TO TUNE";
+  needle.style.left = "50%";
+}
+
+function getPitch(buffer, sampleRate) {
+  const size = buffer.length;
+
+  let rms = 0;
+  for(let i=0; i<size; i++) {
+    rms += buffer[i] * buffer[i];
+  }
+
+  rms = Math.sqrt(rms / size);
+  if(rms < 0.008) return null;
+
+  const minLag = Math.floor(sampleRate / 360);
+  const maxLag = Math.min(
+    Math.floor(sampleRate / 65),
+    size / 2 - 1
+  );
+
+  const diff = new Float32Array(maxLag + 1);
+  const cmnd = new Float32Array(maxLag + 1);
+
+  for(let lag=minLag; lag<=maxLag; lag++) {
+    let sum = 0;
+
+    for(let i=0; i<size/2; i++) {
+      const d = buffer[i] - buffer[i+lag];
+      sum += d*d;
+    }
+
+    diff[lag] = sum;
+  }
+
+  let runningSum = 0;
+
+  for(let lag=minLag; lag<=maxLag; lag++) {
+    runningSum += diff[lag];
+
+    cmnd[lag] = runningSum === 0 ? 1 :
+      diff[lag] * (lag-minLag+1) / runningSum;
+  }
+
+  let best = -1;
+
+  for(let lag=minLag; lag<=maxLag; lag++) {
+    if(cmnd[lag] < 0.15) {
+      while(lag+1<=maxLag &&
+            cmnd[lag+1]<cmnd[lag]) lag++;
+
+      best = lag;
+      break;
+    }
+  }
+
+  if(best === -1) return null;
+
+  const x1 = cmnd[best-1] || 0;
+  const x2 = cmnd[best];
+  const x3 = cmnd[best+1] || 0;
+
+  const den = x1 - 2*x2 + x3;
+
+  const correction = den === 0 ? 0 :
+    0.5*(x1-x3)/den;
+
+  return sampleRate/(best+correction);
+}
+
+function detect() {
+  if(!running) return;
+
+  const buffer = new Float32Array(analyser.fftSize);
+  analyser.getFloatTimeDomainData(buffer);
+
+  const hz = getPitch(buffer, audioContext.sampleRate);
+
+  if(hz && hz > 60 && hz < 370) {
+    showResult(hz);
+  }
+
+  animation = requestAnimationFrame(detect);
+}
+
+const noteNames = [
+  "C","C#","D","D#","E","F",
+  "F#","G","G#","A","A#","B"
+];
+
+function showResult(hz) {
+  const midi = Math.round(69 + 12*Math.log2(hz/440));
+
+  const target = 440*Math.pow(2,(midi-69)/12);
+
+  const cents = 1200*Math.log2(hz/target);
+
+  const name = noteNames[(midi%12+12)%12];
+  const octave = Math.floor(midi/12)-1;
+
+  noteEl.textContent = name + octave;
+  freqEl.textContent = hz.toFixed(2) + " Hz";
+
+  if(Math.abs(cents)<=5) {
+    statusEl.textContent = "✓ PERFECTLY TUNED";
+  } else if(cents<0) {
+    statusEl.textContent = "LOW - TIGHTEN STRING";
+  } else {
+    statusEl.textContent = "HIGH - LOOSEN STRING";
+  }
+
+  const position = Math.max(
+    2, Math.min(98, 50 + cents*1.2)
+  );
+
+  needle.style.left = position + "%";
+}
+
+startBtn.addEventListener("click", startTuner);
+
+</script>
+</body>
+</html>
