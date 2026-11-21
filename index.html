@@ -4,513 +4,361 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jovans Harmony & Guitar Code</title>
+<title>JOVAN AUDIO STUDIO</title>
 
 <style>
-:root {
-  --orange: #ff7518;
-  --orange-light: #ff9a50;
-  --bg: #080808;
-  --panel: #171717;
-  --ash: #999999;
-  --text: #ffffff;
-  --line: #454545;
-}
-
-body.light {
-  --bg: #ffffff;
-  --panel: #f1f1f1;
-  --ash: #777777;
-  --text: #111111;
-  --line: #cccccc;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  padding: 20px;
-  min-height: 100vh;
-  font-family: Arial, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  transition: .3s;
-}
-
-.container {
-  max-width: 500px;
-  margin: 25px auto;
-  padding: 25px 20px;
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 22px;
-  text-align: center;
-  box-shadow: 0 10px 35px #0002;
-}
-
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
-}
-
-.logo {
-  color: var(--orange);
-  font-size: 20px;
-  font-weight: bold;
-  text-align: left;
-}
-
-#themeBtn {
-  background: var(--bg);
-  color: var(--orange);
-  border: 1px solid var(--orange);
-  border-radius: 30px;
-  padding: 10px 14px;
-  cursor: pointer;
-}
-
-.subtitle {
-  color: var(--ash);
-  font-size: 12px;
-  letter-spacing: 2px;
-  margin: 12px 0 25px;
-}
-
-.strings {
-  display: grid;
-  grid-template-columns: repeat(6,1fr);
-  gap: 7px;
-}
-
-.string {
-  background: var(--bg);
-  color: var(--text);
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  padding: 12px 2px;
-  cursor: pointer;
-}
-
-.string strong {
-  display: block;
-  font-size: 22px;
-  color: var(--orange);
-}
-
-.string small {
-  color: var(--ash);
-  font-size: 10px;
-}
-
-.string.active {
-  border: 2px solid var(--orange);
-  box-shadow: 0 0 12px #ff751855;
-}
-
-.label {
-  color: var(--ash);
-  font-size: 12px;
-  margin-top: 30px;
-  letter-spacing: 2px;
-}
-
-.note {
-  color: var(--orange);
-  font-size: 75px;
-  font-weight: bold;
-  margin: 5px;
-  text-shadow: 0 0 18px #ff751855;
-}
-
-.frequency {
-  font-size: 20px;
-  margin: 5px;
-}
-
-.status {
-  color: var(--orange);
-  font-size: 18px;
-  font-weight: bold;
-  margin: 20px 0;
-}
-
-.meter {
-  position: relative;
-  height: 10px;
-  margin: 45px 10px 10px;
-  background: var(--line);
-  border-radius: 20px;
-}
-
-.center {
-  position: absolute;
-  height: 35px;
-  width: 3px;
-  background: var(--orange);
-  left: 50%;
-  top: -12px;
-  box-shadow: 0 0 12px var(--orange);
-  transform: translateX(-50%);
-  z-index: 2;
-}
-
-.needle {
-  position: absolute;
-  top: -8px;
-  left: 50%;
-  width: 5px;
-  height: 27px;
-  background: var(--orange);
-  border-radius: 5px;
-  transform: translateX(-50%);
-  box-shadow: 0 0 12px var(--orange);
-  transition: left .12s;
-}
-
-.scale {
-  display: flex;
-  justify-content: space-between;
-  color: var(--ash);
-  font-size: 12px;
-  margin-top: 17px;
-}
-
-.zero {
-  color: var(--orange);
-  font-weight: bold;
-}
-
-.start {
-  width: 100%;
-  padding: 16px;
-  margin-top: 35px;
-  background: var(--orange);
-  color: #080808;
-  border: none;
-  border-radius: 12px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.start:hover {
-  background: var(--orange-light);
-}
-
-.info {
-  color: var(--ash);
-  font-size: 12px;
-  line-height: 1.7;
-  margin-top: 20px;
-}
-
-footer {
-  color: var(--ash);
-  font-size: 11px;
-  margin-top: 30px;
-}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#080d16;color:white;font-family:Arial,sans-serif}
+header{text-align:center;padding:25px;background:#0d1726;border-bottom:1px solid #263c50}
+header h1{color:#42d69b;letter-spacing:3px}
+header p{color:#8999ac;font-size:12px;margin-top:8px}
+.container{max-width:950px;margin:auto;padding:20px}
+.card{background:#101a29;border:1px solid #22364b;border-radius:14px;padding:20px;margin-bottom:18px}
+.card h2{font-size:17px;margin-bottom:18px;color:#48dda5}
+.uploads{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.upload-box{border:1px dashed #3c6570;background:#0c1522;border-radius:12px;padding:22px;text-align:center}
+.upload-box label{display:block;color:#4cdda5;margin-bottom:12px;font-weight:bold}
+input[type=file]{width:100%;font-size:12px;color:#aaa}
+.info{font-size:12px;color:#91a4b9;margin-top:12px;word-break:break-word}
+.preview{width:100%;background:#000;border-radius:12px;overflow:hidden;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center}
+video{width:100%;height:100%;object-fit:contain}
+.placeholder{color:#70849a;font-size:14px}
+.control{margin:20px 0}
+.control label{display:block;color:#c7d4e1;font-size:13px;margin-bottom:10px}
+input[type=range]{width:100%;accent-color:#42d69b}
+select{width:100%;padding:12px;border-radius:8px;background:#0a1420;color:white;border:1px solid #344b60}
+.value{color:#42d69b;float:right}
+button{width:100%;padding:15px;border:none;border-radius:9px;background:#32c98e;color:#06150e;font-size:15px;font-weight:bold;cursor:pointer;margin-top:10px}
+button:disabled{opacity:.45;cursor:not-allowed}
+.secondary{background:#23384c;color:white}
+#status{text-align:center;color:#42d69b;margin:15px 0;font-size:13px;white-space:pre-wrap}
+progress{width:100%;height:9px;accent-color:#42d69b;display:none}
+audio{width:100%;margin-top:12px}
+small{color:#8395a9;line-height:1.6}
+@media(max-width:600px){.uploads{grid-template-columns:1fr}.container{padding:13px}}
 </style>
 </head>
 
 <body>
 
-<div class="container">
-
 <header>
-  <div class="logo">
-    JOVANS HARMONY<br>
-    & GUITAR CODE
-  </div>
-
-  <button id="themeBtn">☀ LIGHT</button>
+<h1>JOVAN AUDIO STUDIO</h1>
+<p>YOUR VIDEO. YOUR AUDIO. YOUR CREATION.</p>
 </header>
 
-<div class="subtitle">
-  PROFESSIONAL GUITAR TUNER
+<div class="container">
+
+<div class="card">
+<h2>01. Upload Your Files</h2>
+<div class="uploads">
+
+<div class="upload-box">
+<label>🎬 VIDEO FILE</label>
+<input type="file" id="videoInput" accept="video/*">
+<div class="info" id="videoInfo">No video selected</div>
 </div>
 
-<div class="strings">
-  <button class="string" data-i="0">
-    <strong>E</strong><small>6th</small>
-  </button>
-  <button class="string" data-i="1">
-    <strong>A</strong><small>5th</small>
-  </button>
-  <button class="string" data-i="2">
-    <strong>D</strong><small>4th</small>
-  </button>
-  <button class="string" data-i="3">
-    <strong>G</strong><small>3rd</small>
-  </button>
-  <button class="string" data-i="4">
-    <strong>B</strong><small>2nd</small>
-  </button>
-  <button class="string" data-i="5">
-    <strong>E</strong><small>1st</small>
-  </button>
+<div class="upload-box">
+<label>🎵 AUDIO FILE</label>
+<input type="file" id="audioInput" accept="audio/*">
+<div class="info" id="audioInfo">No audio selected</div>
 </div>
 
-<div class="label">DETECTED NOTE</div>
-
-<div class="note" id="note">--</div>
-<div class="frequency" id="frequency">0.00 Hz</div>
-
-<div class="status" id="status">READY TO TUNE</div>
-
-<div class="meter">
-  <div class="center"></div>
-  <div class="needle" id="needle"></div>
+</div>
 </div>
 
-<div class="scale">
-  <span>LOW</span>
-  <span class="zero">0 ZERO</span>
-  <span>HIGH</span>
+<div class="card">
+<h2>02. Video Preview</h2>
+<div class="preview">
+<video id="preview" controls playsinline></video>
+<div class="placeholder" id="placeholder">Upload a video to preview</div>
+</div>
+<audio id="audioPreview" controls></audio>
 </div>
 
-<button class="start" id="start">
-  START MICROPHONE
-</button>
+<div class="card">
+<h2>03. Video Duration Control</h2>
 
-<div class="info" id="info">
-  Allow microphone access and play one string at a time.
+<div class="control">
+<label>Audio Duration <span class="value" id="audioDuration">0 sec</span></label>
+<small>Your audio duration will remain fixed.</small>
 </div>
 
-<footer>
-  JOVANS HARMONY & GUITAR CODE<br>
-  STANDARD TUNING · E A D G B E
-</footer>
+<div class="control">
+<label>Video Start Time <span class="value" id="startValue">0 sec</span></label>
+<input type="range" id="startTime" min="0" max="0" value="0" step="0.1">
+</div>
+
+<div class="control">
+<label>Video Adjustment Mode</label>
+<select id="mode">
+<option value="loop">Loop Video (Repeat Automatically)</option>
+<option value="stretch">Stretch Video (Change Speed)</option>
+</select>
+</div>
+
+<div class="control">
+<label>Video Display Mode</label>
+<select id="fit">
+<option value="cover">Fill Screen (Crop)</option>
+<option value="contain">Fit Screen (No Crop)</option>
+</select>
+</div>
+
+<div class="control">
+<label>Export Resolution</label>
+<select id="resolution">
+<option value="1280:720">720p HD</option>
+<option value="1920:1080">1080p Full HD</option>
+</select>
+</div>
+
+<button class="secondary" id="previewBtn">▶ Preview Adjusted Video</button>
+</div>
+
+<div class="card">
+<h2>04. Export Final Video</h2>
+<small>Merge your video and audio into one MP4 file.</small>
+
+<button id="exportBtn" disabled>MERGE & EXPORT MP4</button>
+
+<progress id="progress" max="100" value="0"></progress>
+
+<div id="status">Upload your video and audio to begin.</div>
+
+<a id="downloadLink" style="display:none" download="JOVAN_FINAL_VIDEO.mp4">
+<button>⬇ DOWNLOAD FINAL VIDEO</button>
+</a>
+</div>
 
 </div>
 
-<script>
-const themeBtn = document.getElementById("themeBtn");
+<script type="module">
 
-themeBtn.addEventListener("click", () => {
-  document.body.classList.toggle("light");
+import {FFmpeg} from "https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@0.12.10/dist/esm/index.js";
+import {toBlobURL} from "https://cdn.jsdelivr.net/npm/@ffmpeg/util@0.12.2/dist/esm/index.js";
 
-  themeBtn.textContent =
-    document.body.classList.contains("light")
-    ? "☾ DARK"
-    : "☀ LIGHT";
+const $=id=>document.getElementById(id);
+
+const video=$("preview");
+const audio=$("audioPreview");
+
+let videoFile=null;
+let audioFile=null;
+let videoDuration=0;
+let audioDuration=0;
+let ffmpeg=null;
+let ready=false;
+let outputURL=null;
+
+function formatTime(s){
+return Number.isFinite(s)?s.toFixed(2)+" sec":"0 sec";
+}
+
+function updateButton(){
+$("exportBtn").disabled=!(videoFile&&audioFile);
+}
+
+$("videoInput").addEventListener("change",()=>{
+videoFile=$("videoInput").files[0];
+if(!videoFile)return;
+
+video.src=URL.createObjectURL(videoFile);
+$("placeholder").style.display="none";
+
+video.onloadedmetadata=()=>{
+videoDuration=video.duration;
+$("startTime").max=Math.max(0,videoDuration-0.1);
+$("videoInfo").textContent=videoFile.name+" | "+formatTime(videoDuration);
+$("startTime").value=0;
+$("startValue").textContent="0 sec";
+};
+
+updateButton();
 });
 
-const strings = [
-  {name:"E", hz:82.41},
-  {name:"A", hz:110},
-  {name:"D", hz:146.83},
-  {name:"G", hz:196},
-  {name:"B", hz:246.94},
-  {name:"E", hz:329.63}
-];
+$("audioInput").addEventListener("change",()=>{
+audioFile=$("audioInput").files[0];
+if(!audioFile)return;
 
-let selected = -1;
-let audioContext, analyser, stream;
-let running = false;
-let animation;
+audio.src=URL.createObjectURL(audioFile);
 
-const noteEl = document.getElementById("note");
-const freqEl = document.getElementById("frequency");
-const statusEl = document.getElementById("status");
-const needle = document.getElementById("needle");
-const info = document.getElementById("info");
-const startBtn = document.getElementById("start");
+audio.onloadedmetadata=()=>{
+audioDuration=audio.duration;
+$("audioInfo").textContent=audioFile.name+" | "+formatTime(audioDuration);
+$("audioDuration").textContent=formatTime(audioDuration);
+};
 
-document.querySelectorAll(".string").forEach(btn => {
-  btn.addEventListener("click", () => {
-    selected = Number(btn.dataset.i);
-
-    document.querySelectorAll(".string").forEach(b =>
-      b.classList.remove("active")
-    );
-
-    btn.classList.add("active");
-
-    info.textContent =
-      "Selected: " + strings[selected].name +
-      " | " + strings[selected].hz + " Hz";
-  });
+updateButton();
 });
 
-async function startTuner() {
-  if (running) {
-    stopTuner();
-    return;
-  }
+$("startTime").addEventListener("input",e=>{
+$("startValue").textContent=formatTime(Number(e.target.value));
+});
 
-  try {
-    stream = await navigator.mediaDevices.getUserMedia({
-      audio: {
-        echoCancellation: false,
-        noiseSuppression: false,
-        autoGainControl: false
-      }
-    });
+async function loadFFmpeg(){
 
-    audioContext = new (
-      window.AudioContext || window.webkitAudioContext
-    )();
+if(ready)return;
 
-    await audioContext.resume();
+$("status").textContent="Loading processing engine...";
 
-    const source =
-      audioContext.createMediaStreamSource(stream);
+ffmpeg=new FFmpeg();
 
-    analyser = audioContext.createAnalyser();
-    analyser.fftSize = 8192;
-    source.connect(analyser);
+ffmpeg.on("progress",({progress})=>{
+$("progress").value=Math.min(100,Math.round(progress*100));
+});
 
-    running = true;
-    startBtn.textContent = "STOP TUNER";
-    info.textContent = "Listening to your guitar...";
+const base="https://cdn.jsdelivr.net/npm/@ffmpeg/core@0.12.10/dist/umd";
 
-    detect();
+await ffmpeg.load({
+coreURL:await toBlobURL(`${base}/ffmpeg-core.js`,"text/javascript"),
+wasmURL:await toBlobURL(`${base}/ffmpeg-core.wasm`,"application/wasm")
+});
 
-  } catch(error) {
-    info.textContent =
-      "Microphone permission required. Please allow access.";
-  }
+ready=true;
 }
 
-function stopTuner() {
-  running = false;
-  cancelAnimationFrame(animation);
+$("previewBtn").addEventListener("click",async()=>{
 
-  if(stream) {
-    stream.getTracks().forEach(t => t.stop());
-  }
-
-  if(audioContext) {
-    audioContext.close();
-  }
-
-  startBtn.textContent = "START MICROPHONE";
-  noteEl.textContent = "--";
-  freqEl.textContent = "0.00 Hz";
-  statusEl.textContent = "READY TO TUNE";
-  needle.style.left = "50%";
+if(!videoFile||!audioFile){
+alert("Upload both files first.");
+return;
 }
 
-function getPitch(buffer, sampleRate) {
-  const size = buffer.length;
+const start=Number($("startTime").value);
+const mode=$("mode").value;
 
-  let rms = 0;
-  for(let i=0; i<size; i++) {
-    rms += buffer[i] * buffer[i];
-  }
+video.pause();
+audio.pause();
 
-  rms = Math.sqrt(rms / size);
-  if(rms < 0.008) return null;
+video.currentTime=start;
+audio.currentTime=0;
+video.loop=mode==="loop";
+video.muted=true;
 
-  const minLag = Math.floor(sampleRate / 360);
-  const maxLag = Math.min(
-    Math.floor(sampleRate / 65),
-    size / 2 - 1
-  );
-
-  const diff = new Float32Array(maxLag + 1);
-  const cmnd = new Float32Array(maxLag + 1);
-
-  for(let lag=minLag; lag<=maxLag; lag++) {
-    let sum = 0;
-
-    for(let i=0; i<size/2; i++) {
-      const d = buffer[i] - buffer[i+lag];
-      sum += d*d;
-    }
-
-    diff[lag] = sum;
-  }
-
-  let runningSum = 0;
-
-  for(let lag=minLag; lag<=maxLag; lag++) {
-    runningSum += diff[lag];
-
-    cmnd[lag] = runningSum === 0 ? 1 :
-      diff[lag] * (lag-minLag+1) / runningSum;
-  }
-
-  let best = -1;
-
-  for(let lag=minLag; lag<=maxLag; lag++) {
-    if(cmnd[lag] < 0.15) {
-      while(lag+1<=maxLag &&
-            cmnd[lag+1]<cmnd[lag]) lag++;
-
-      best = lag;
-      break;
-    }
-  }
-
-  if(best === -1) return null;
-
-  const x1 = cmnd[best-1] || 0;
-  const x2 = cmnd[best];
-  const x3 = cmnd[best+1] || 0;
-
-  const den = x1 - 2*x2 + x3;
-
-  const correction = den === 0 ? 0 :
-    0.5*(x1-x3)/den;
-
-  return sampleRate/(best+correction);
+if(mode==="stretch"){
+video.playbackRate=(videoDuration-start)/audioDuration;
+}else{
+video.playbackRate=1;
 }
 
-function detect() {
-  if(!running) return;
-
-  const buffer = new Float32Array(analyser.fftSize);
-  analyser.getFloatTimeDomainData(buffer);
-
-  const hz = getPitch(buffer, audioContext.sampleRate);
-
-  if(hz && hz > 60 && hz < 370) {
-    showResult(hz);
-  }
-
-  animation = requestAnimationFrame(detect);
+try{
+await video.play();
+await audio.play();
+}catch(e){
+$("status").textContent="Press play to preview.";
 }
 
-const noteNames = [
-  "C","C#","D","D#","E","F",
-  "F#","G","G#","A","A#","B"
-];
+audio.onended=()=>video.pause();
 
-function showResult(hz) {
-  const midi = Math.round(69 + 12*Math.log2(hz/440));
+});
 
-  const target = 440*Math.pow(2,(midi-69)/12);
+$("exportBtn").addEventListener("click",async()=>{
 
-  const cents = 1200*Math.log2(hz/target);
+if(!videoFile||!audioFile)return;
 
-  const name = noteNames[(midi%12+12)%12];
-  const octave = Math.floor(midi/12)-1;
+const button=$("exportBtn");
+button.disabled=true;
+$("progress").style.display="block";
+$("progress").value=0;
+$("downloadLink").style.display="none";
 
-  noteEl.textContent = name + octave;
-  freqEl.textContent = hz.toFixed(2) + " Hz";
+try{
 
-  if(Math.abs(cents)<=5) {
-    statusEl.textContent = "✓ PERFECTLY TUNED";
-  } else if(cents<0) {
-    statusEl.textContent = "LOW - TIGHTEN STRING";
-  } else {
-    statusEl.textContent = "HIGH - LOOSEN STRING";
-  }
+await loadFFmpeg();
 
-  const position = Math.max(
-    2, Math.min(98, 50 + cents*1.2)
-  );
+const start=Number($("startTime").value);
+const mode=$("mode").value;
+const fit=$("fit").value;
+const resolution=$("resolution").value;
 
-  needle.style.left = position + "%";
+const videoName="source_video";
+const audioName="source_audio";
+
+await ffmpeg.writeFile(videoName,new Uint8Array(await videoFile.arrayBuffer()));
+await ffmpeg.writeFile(audioName,new Uint8Array(await audioFile.arrayBuffer()));
+
+const remaining=videoDuration-start;
+
+if(remaining<=0||audioDuration<=0){
+throw new Error("Invalid media duration.");
 }
 
-startBtn.addEventListener("click", startTuner);
+let scaleFilter;
+
+if(fit==="cover"){
+scaleFilter=`scale=${resolution}:force_original_aspect_ratio=increase,crop=${resolution}`;
+}else{
+scaleFilter=`scale=${resolution}:force_original_aspect_ratio=decrease,pad=${resolution}:(ow-iw)/2:(oh-ih)/2:black`;
+}
+
+let videoFilter=scaleFilter;
+
+if(mode==="stretch"){
+const factor=audioDuration/remaining;
+videoFilter=`setpts=${factor}*PTS,${scaleFilter}`;
+}
+
+$("status").textContent="Rendering your video...";
+
+const args=[];
+
+if(mode==="loop"){
+args.push("-stream_loop","-1");
+}
+
+args.push(
+"-ss",String(start),
+"-i",videoName,
+"-i",audioName,
+"-map","0:v:0",
+"-map","1:a:0",
+"-vf",videoFilter,
+"-c:v","libx264",
+"-preset","ultrafast",
+"-pix_fmt","yuv420p",
+"-c:a","aac",
+"-b:a","192k",
+"-t",String(audioDuration),
+"-shortest",
+"-movflags","+faststart",
+"final_video.mp4"
+);
+
+const result=await ffmpeg.exec(args);
+
+if(result!==0){
+throw new Error("FFmpeg export failed.");
+}
+
+const data=await ffmpeg.readFile("final_video.mp4");
+
+const blob=new Blob([data],{type:"video/mp4"});
+
+if(outputURL)URL.revokeObjectURL(outputURL);
+
+outputURL=URL.createObjectURL(blob);
+
+$("downloadLink").href=outputURL;
+$("downloadLink").style.display="block";
+
+$("status").textContent="Your video is ready! ✓";
+$("progress").value=100;
+
+}catch(error){
+
+console.error(error);
+$("status").textContent="Error: "+error.message;
+
+}finally{
+
+button.disabled=false;
+
+}
+
+});
 
 </script>
+
 </body>
 </html>
